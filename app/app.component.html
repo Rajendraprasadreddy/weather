@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Find your city weather!
+  </h1>
+</div>
+   <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+      <div class="form-group input-class" >
+        <label for="name">City Name</label>
+        <input type="text" class="form-control" [ngClass]="{'has-error':(!cityForm.controls['cityName'].valid )}" [(ngModel)]="model" [formControl]="cityForm.controls['cityName']">
+      </div>
+      <!-- <button type="submit" class="submitbutton">Get weather</button> -->
+      <div class="form-group">
+        <button type="submit" class="submitbutton">Submit</button>
+      </div>
+    </form>
+
+<div *ngIf="submitted==true">
+<p *ngIf="this.resvalue.cod==200">Weather of {{model}}:- {{this.resvalue.main.temp}}</p>
+<p *ngIf="this.resvalue.cod!=200">{{this.resvalue.message}}</p>
+ <button type="button" (click)="reset()" class="submitbutton">Reset</button>
+  </div>

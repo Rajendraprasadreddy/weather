@@ -1,0 +1,11 @@
+.submitbutton{
+color: white;
+background-color: black;
+}
+
+.input-class{
+    padding-bottom: 20px;
+}
+.has-error{
+    border:1px solid red;
+}
